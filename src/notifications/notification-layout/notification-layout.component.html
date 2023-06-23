@@ -1,0 +1,10 @@
+<p>Notifications {{ notificationCount$ | async }}</p>
+<ul>
+  <li *ngFor="let notification of notifications$ | async">
+    {{ notification.title }}
+  </li>
+</ul>
+<button type="button" (click)="refreshNotification()">
+  Refresh Notification
+</button>
+<p>Notifications {{ notificationCount$ | async }}</p>
