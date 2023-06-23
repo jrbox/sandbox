@@ -23,7 +23,6 @@ export class NotificationStore {
 
   /** Modification explicite de l'état du store (interne) */
   private updateState(newState: NotificationState) {
-    console.log(newState, 'updateState');
     this._state.next(newState);
   }
 
@@ -31,7 +30,7 @@ export class NotificationStore {
   updateNotifications(notifications: Notification[]) {
     const newState = {
       ...this.state,
-      notifications: notifications.concat(),
+      notifications: notifications,
     };
     this.updateState(newState);
   }

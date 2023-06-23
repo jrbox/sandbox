@@ -1,3 +1,7 @@
-<p>
-notification-list works!
-</p>
+<p>Notifications {{ notificationCount }}</p>
+<ul>
+  <li *ngFor="let notification of notifications">
+    {{ notification.title }}
+  </li>
+</ul>
+<button type="button" (click)="refresh()">Refresh Notification</button>

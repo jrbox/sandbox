@@ -24,16 +24,4 @@ export class NotificationAdapter
       this.adapt(notificationApi)
     );
   };
-
-  /**
-   * Adapteur
-   */
-  adapt2(notificationApi: NotificationApi): Notification {
-    const result: Notification = {
-      title: notificationApi.title + notificationApi.description,
-      message: notificationApi.description,
-      creationDate: new Date(),
-    };
-    return result;
-  }
 }

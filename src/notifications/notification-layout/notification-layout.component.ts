@@ -9,21 +9,14 @@ import { NotificationService } from '../notification.service';
   styleUrls: ['./notification-layout.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NotificationLayoutComponent implements OnInit {
+export class NotificationLayoutComponent {
   // api notification
-  notifications$?: Observable<Notification[]>;
-  notificationCount$?: Observable<number>;
+  notifications$: Observable<Notification[]> =
+    this.notificationService.notifications$;
+  notificationCount$: Observable<number> =
+    this.notificationService.notificationCount$;
 
-  constructor(private notificationService: NotificationService) {
-    notificationService.notificationCount$.subscribe((count) => {
-      console.log(count, 'notificationCount view');
-    });
-  }
-
-  ngOnInit(): void {
-    this.notificationCount$ = this.notificationService.notificationCount$;
-    this.notifications$ = this.notificationService.notifications$;
-  }
+  constructor(private notificationService: NotificationService) {}
 
   refreshNotification() {
     this.notificationService.loadNotification().subscribe();
